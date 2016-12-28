@@ -68,7 +68,7 @@ $app->post('/publish/{signature}', function (Request $request, Response $respons
     $dataToReturn = array();
     $tx_id = $client->setDebug(true)->executeApi('publish', array("poe", $signature, $dataHex));
     
-    $longUrl = $_SERVER['HTTP_HOST']."/poe/details.php?signature=".$signature;
+    $longUrl = $_SERVER['HTTP_HOST']."/details.php?signature=".$signature;
     $shorUrl = shortUrl($longUrl);
 
     $block_info = $client->setDebug(true)->executeApi('getwallettransaction', array($tx_id));
